@@ -1,0 +1,17 @@
+version: "3"
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+      - "3333:3333"
+    volumes:
+      - .:/usr/src/app
+      #- /usr/src/app/node_modules
+    environment:
+      - DATABASE_URL=sqlite://localhost/dev.db
+    command: >
+      sh -c "
+      npx prisma migrate deploy &&
+      npm run dev
+      "
