@@ -9,7 +9,7 @@ services:
       - .:/usr/src/app
       #- /usr/src/app/node_modules
     environment:
-      - DATABASE_URL=sqlite://localhost/dev.db
+      - DATABASE_URL=file:/usr/src/app/dev.db
     command: >
       sh -c "
       npx prisma migrate deploy &&

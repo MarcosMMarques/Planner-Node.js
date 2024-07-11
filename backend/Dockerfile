@@ -17,6 +17,9 @@ RUN npm install && npm install typescript @types/node prisma fastify -D && npm i
 RUN npm install fastify
 RUN npm install zod
 RUN npm install fastify-type-provider-zod
+RUN npm install dayjs
+RUN npm install nodemailer
+RUN npm install --save-dev @types/nodemailer
 
 # Compile o TypeScript para JavaScript
 RUN npx prisma init --datasource-provider SQLite
