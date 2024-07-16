@@ -12,14 +12,15 @@ COPY src/server.ts ./src/server.ts
 
 
 # Instale as dependências do projeto e TypeScript
-RUN npm install && npm install typescript @types/node prisma fastify -D && npm install -g tsx
-
-RUN npm install fastify
-RUN npm install zod
-RUN npm install fastify-type-provider-zod
-RUN npm install dayjs
-RUN npm install nodemailer
-RUN npm install --save-dev @types/nodemailer
+RUN npm install \
+    && npm install typescript @types/node prisma fastify -D \
+    && npm install -g tsx \
+    && npm install fastify \
+    && npm install zod \
+    && npm install fastify-type-provider-zod \
+    && npm install dayjs \
+    && npm install nodemailer \
+    && npm install --save-dev @types/nodemailer
 
 # Compile o TypeScript para JavaScript
 RUN npx prisma init --datasource-provider SQLite
